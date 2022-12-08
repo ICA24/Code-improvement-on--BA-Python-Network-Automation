@@ -1,0 +1,13 @@
+---
+
+inventory:
+    plugin: SimpleInventory
+    options:
+        host_file: "appdata/hosts.yml"
+        group_file: "appdata/groups.yml"
+        defaults_file: "appdata/defaults.yml"
+
+runner:
+    plugin: threaded
+    options:
+        num_workers: 10
