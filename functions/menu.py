@@ -1,4 +1,5 @@
 from collections import namedtuple
+from data import constants as const
 
 Option = namedtuple('Option', ['label', 'callback'])
 
@@ -19,14 +20,19 @@ class Menu:
 
         for i, option in enumerate(self._options):
             string += f"{i + 1} {option.label}\n"
-        return string
+        print (string)
 
     def callback(self, i):
         if i <= len(self._options):
             return self._options[i - 1].callback
 
+class Menu_Init(Menu):
+        def __init__(self, MENU_NAME):
+            print(MENU_NAME.display())
+            option = int(input('-Choose option:'))
+            MENU_NAME.callback(option)()
 
-class Menu_Device_Selection(Menu):
-    def __init__(self, title, options):
-        Menu.__init__(self, title, options)
 
+
+def menu_device_selection_init():
+    Menu_Init(const.MENU_DEVICE_SELECTION)

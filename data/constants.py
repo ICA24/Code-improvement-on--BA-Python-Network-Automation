@@ -1,21 +1,11 @@
 import functions.menu as f
 from functions.filtersSpecific import filterSpecificfunc
-from functions import filtersGroups, compareConfig, templateNameServer, templateOSPF, backupFunct, filtersSpecific
+from functions import filtersGroups, compareConfig, templateNameServer, templateOSPF, backupFunct, filtersSpecific, menu
 import subprocess
-
-
-
-
-# if __name__ == '__const__':
-#   const()
-# def const():
-
-
 
 ##############################################################################################################################################
 ##########################################-- Legacy code starts - #########################################################################
 ##############################################################################################################################################
-
 
 def printMenuDevices():
 	print("\n1. Edit hosts file")
@@ -150,31 +140,22 @@ def TemplateConfig():
 
 def test():
 	pass
+
 ##############################################################################################################################################
 ##########################################-- Legacy code ends - #########################################################################
 ##############################################################################################################################################
 
-global MENU_DEVICE_SELECTION
-MENU_DEVICE_SELECTION = f.Menu_Device_Selection(
+MENU_DEVICE_SELECTION = f.Menu(
 	"Device selection Menu - Please Select an Option", [
 	('1. Show device list"', openHostsYAML),
 	('2. Select device group', printMenuDevicesSelectGroups),
 	('3. Select specific devices', filterSpecificfunc),
 	('Exit', test)])
 
-def funcMENU_DEVICE_SELECTION():
-	print(MENU_DEVICE_SELECTION.display())
-	option = int(input('-Choose option:'))
-	MENU_DEVICE_SELECTION.callback(option)()
-
-
-def selectMenuDevicesNEW():
-	pass
-global main_menu
 MAIN_MENU = f.Menu(
 	"Main Menu - Please Select an Option", [
 	('hosts', EditHostsFile),
-	('select', funcMENU_DEVICE_SELECTION),
+	('select', menu.menu_device_selection_init),
 	('confAll', selectMenuConfiguration),
 	('Exit', test)])
 
