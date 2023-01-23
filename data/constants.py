@@ -1,8 +1,6 @@
-import functions.menu as f
+import functions.menu as menu
 from functions.filtersSpecific import filterSpecificfunc
-from functions import filtersGroups, compareConfig, templateNameServer, templateOSPF, backupFunct, filtersSpecific, menu
-import subprocess
-
+from functions import generic, filter_by_device_groups, compareConfig, templateNameServer, templateOSPF, backupFunct, filtersSpecific, menu, cli_commands
 ##############################################################################################################################################
 ##########################################-- Legacy code starts - #########################################################################
 ##############################################################################################################################################
@@ -122,10 +120,7 @@ def SelectMenuConfigurationTemplates():
 		printMenuConfiguration()
 		selectMenuConfiguration()
 
-def EditHostsFile():
-	print("\nConfigure hosts inventory YAML file with care to avoid potential issues.\nPlease see documentation for guidance: https://nornir.readthedocs.io/en/3.0.0/tutorial/inventory.html")
 
-	subprocess.call([r"C:\Program Files\Notepad++\notepad++.exe", r"D:\Network Automation\BA Python Improvement\data\hosts.yml"])
 
 def openHostsYAML():
 	hostsYAML = open("data/hosts.yml")
@@ -138,26 +133,39 @@ def TemplateConfig():
 	printMenuConfiguration()
 	selectMenuConfiguration()
 
-def test():
-	pass
 
 ##############################################################################################################################################
 ##########################################-- Legacy code ends - #########################################################################
 ##############################################################################################################################################
 
-MENU_DEVICE_SELECTION = f.Menu(
-	"Device selection Menu - Please Select an Option", [
-	('1. Show device list"', openHostsYAML),
-	('2. Select device group', printMenuDevicesSelectGroups),
-	('3. Select specific devices', filterSpecificfunc),
-	('Exit', test)])
+MENU_CONFIGURATION_OPTIONS = menu.Menu(
+	"Device Group selection Menu - Please Select an Option", [
+	('CLI commands', cli_commands),
+	('Juniper Routers', filter_by_device_groups.SelectJuniperRouters),
+	('Juniper Switches', filter_by_device_groups.SelectJuniperSwitches),
+	('Back', menu.menu_device_selection_init)])
 
-MAIN_MENU = f.Menu(
+MENU_DEVICE_GROUP_SELECTION = menu.Menu(
+	"Device Group selection Menu - Please Select an Option", [
+	('Juniper Firewalls', filter_by_device_groups.SelectJuniperFirewalls),
+	('Juniper Routers', filter_by_device_groups.SelectJuniperRouters),
+	('Juniper Switches', filter_by_device_groups.SelectJuniperSwitches),
+	('Back', menu.menu_device_selection_init)])
+
+
+MENU_DEVICE_SELECTION = menu.Menu(
+	"Device selection Menu - Please Select an Option", [
+	('Show device list', generic.list_hosts),
+	('Select device group', menu.menu_device_group_init),
+	('Select specific devices', filterSpecificfunc),
+	('Back', menu.main_menu_init)])
+
+MAIN_MENU = menu.Menu(
 	"Main Menu - Please Select an Option", [
-	('hosts', EditHostsFile),
-	('select', menu.menu_device_selection_init),
-	('confAll', selectMenuConfiguration),
-	('Exit', test)])
+	('Edit hosts file', generic.EditHostsFile),
+	('Select hosts', menu.menu_device_selection_init),
+	('Configure all devices', selectMenuConfiguration),
+	('Exit', generic.exit)])
 
 
 

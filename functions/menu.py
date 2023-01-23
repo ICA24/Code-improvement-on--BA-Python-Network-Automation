@@ -33,6 +33,14 @@ class Menu_Init(Menu):
             MENU_NAME.callback(option)()
 
 
+def main_menu_init():
+    Menu_Init(const.MAIN_MENU)
 
 def menu_device_selection_init():
     Menu_Init(const.MENU_DEVICE_SELECTION)
+
+def menu_device_group_init():
+    Menu_Init(const.MENU_DEVICE_GROUP_SELECTION)
+
+def menu_configuration_options_init():
+    Menu_Init(const.MENU_CONFIGURATION_OPTIONS)

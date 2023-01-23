@@ -1,4 +1,4 @@
-from data import constants as const
+import data.constants as const
 
 while True:
     const.MAIN_MENU.display()
