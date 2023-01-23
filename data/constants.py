@@ -140,7 +140,7 @@ def TemplateConfig():
 
 MENU_CONFIGURATION_OPTIONS = menu.Menu(
 	"Device Group selection Menu - Please Select an Option", [
-	('CLI commands', cli_commands),
+	('CLI commands', cli_commands.send_cli_command),
 	('Juniper Routers', filter_by_device_groups.SelectJuniperRouters),
 	('Juniper Switches', filter_by_device_groups.SelectJuniperSwitches),
 	('Back', menu.menu_device_selection_init)])
