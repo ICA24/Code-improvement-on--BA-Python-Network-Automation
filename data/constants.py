@@ -1,6 +1,5 @@
-import functions.menu as menu
 from functions.filtersSpecific import filterSpecificfunc
-from functions import generic, filter_by_device_groups, compareConfig, templateNameServer, templateOSPF, backupFunct, filtersSpecific, menu, cli_commands
+from functions import generic, filter_by_device_groups, compareConfig, conf_template_name_server, conf_template_ospf, backupFunct, filtersSpecific, menu, conf_cli_commands
 ##############################################################################################################################################
 ##########################################-- Legacy code starts - #########################################################################
 ##############################################################################################################################################
@@ -137,11 +136,18 @@ def TemplateConfig():
 ##############################################################################################################################################
 ##########################################-- Legacy code ends - #########################################################################
 ##############################################################################################################################################
+MENU_TEMPLATE_CONFIGURATION_OPTIONS
+ = menu.Menu(
+	"Device Group selection Menu - Please Select an Option", [
+	('Name server template', conf_template_name_server.conf_template_name_server),
+	('OSPF template', conf_template_ospf.conf_template_ospf),
+	('Back', menu.menu_configuration_options_init])
+
 
 MENU_CONFIGURATION_OPTIONS = menu.Menu(
 	"Device Group selection Menu - Please Select an Option", [
-	('CLI commands', cli_commands.send_cli_command),
-	('Juniper Routers', filter_by_device_groups.SelectJuniperRouters),
+	('CLI commands', conf_cli_commands.send_cli_command),
+	('Templates', menu.menu_configuration_template_options_init),
 	('Juniper Switches', filter_by_device_groups.SelectJuniperSwitches),
 	('Back', menu.menu_device_selection_init)])
 

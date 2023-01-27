@@ -1,5 +1,5 @@
-from functions import filter_by_device_groups, compareConfig, templateNameServer, templateOSPF, backupFunct, filtersSpecific
-from functions.cli_commands import CLIcommands
+from functions import filter_by_device_groups, compareConfig, conf_template_name_server, conf_template_ospf, backupFunct, filtersSpecific
+from functions.conf_cli_commands import CLIcommands
 import subprocess
 
 

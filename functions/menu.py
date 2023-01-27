@@ -44,3 +44,6 @@ def menu_device_group_init():
 
 def menu_configuration_options_init():
     Menu_Init(const.MENU_CONFIGURATION_OPTIONS)
+
+def menu_configuration_template_options_init():
+    Menu_Init(const.MENU_TEMPLATE_CONFIGURATION_OPTIONS)

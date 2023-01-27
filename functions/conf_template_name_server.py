@@ -5,7 +5,7 @@ from data.globals import SELECTED_DEVICES
 
 
 
-def TemplatingNameServer ():
+def conf_template_name_server ():
     env = Environment(
         loader=PackageLoader("PythonNetworkAutomation"),
             autoescape=select_autoescape())

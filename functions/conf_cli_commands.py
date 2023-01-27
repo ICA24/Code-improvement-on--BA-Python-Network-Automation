@@ -5,8 +5,6 @@ from data import globals
 
 
 def send_cli_command():
-    print("in func")
-    print(globals.SELECTED_DEVICES)
     print("Define CLI command, each CLI command needs to be entered on a new line:\nPress CTRL+D to finish.\n")
     CLIInput = []
     while True:
@@ -17,6 +15,5 @@ def send_cli_command():
         CLIInput.append(line)
 
     for cmd in CLIInput:
-        nr = InitNornir(config_file="data/config.yml")
         results = globals.SELECTED_DEVICES.run(task=netmiko_send_command, command_string=cmd)
         print_result(results)
