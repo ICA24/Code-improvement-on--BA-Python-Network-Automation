@@ -1,5 +1,5 @@
 from collections import namedtuple
-from data import constants as const
+from ba_python_improvement.data import constants as const
 
 Option = namedtuple('Option', ['label', 'callback'])
 

@@ -1,4 +1,4 @@
-import data.constants as const
+import ba_python_improvement.data.constants as const
 
 while True:
     const.MAIN_MENU.display()

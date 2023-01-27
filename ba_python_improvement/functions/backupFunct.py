@@ -3,7 +3,7 @@ from nornir_netmiko import netmiko_send_command
 from nornir_utils.plugins.functions import print_result
 from nornir_utils.plugins.tasks.files import write_file
 from datetime import date
-from data.globals import SELECTED_DEVICES
+from ba_python_improvement.data.globals import SELECTED_DEVICES
 
 
 def Backups():

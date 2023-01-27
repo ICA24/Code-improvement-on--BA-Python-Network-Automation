@@ -1,4 +1,4 @@
-from functions import menu
+from ba_python_improvement.functions import menu
 import subprocess
 
 def EditHostsFile():

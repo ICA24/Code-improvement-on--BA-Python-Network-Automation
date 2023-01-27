@@ -1,7 +1,6 @@
-from nornir import InitNornir
 from nornir_netmiko import netmiko_send_command
 from nornir_utils.plugins.functions import print_result
-from data import globals
+from ba_python_improvement.data import globals
 
 
 def send_cli_command():

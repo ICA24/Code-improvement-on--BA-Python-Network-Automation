@@ -1,12 +1,12 @@
 from nornir_netmiko import netmiko_send_command
 from nornir_utils.plugins.functions import print_result
 from jinja2 import Environment, PackageLoader, select_autoescape
-from data.globals import SELECTED_DEVICES
+from ba_python_improvement.data.globals import SELECTED_DEVICES as SELECTED_DEVICES
 
 
-def TemplatingOSPF ():
+def conf_template_ospf ():
     env = Environment(
-        loader=PackageLoader("PythonNetworkAutomation"),
+        loader=PackageLoader("ba_python_improvement"),
             autoescape=select_autoescape())
     template = env.get_template("ospf.j2")
     area = input ("\nSpecify OSPF area:")

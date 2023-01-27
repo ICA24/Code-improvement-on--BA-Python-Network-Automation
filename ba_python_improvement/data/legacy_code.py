@@ -1,5 +1,6 @@
-from functions import filter_by_device_groups, compareConfig, conf_template_name_server, conf_template_ospf, backupFunct, filtersSpecific
-from functions.conf_cli_commands import CLIcommands
+from ba_python_improvement.functions import backupFunct, compareConfig, filter_by_device_groups, conf_template_ospf, \
+    conf_template_name_server, filtersSpecific
+from ba_python_improvement.functions.conf_cli_commands import CLIcommands
 import subprocess
 
 

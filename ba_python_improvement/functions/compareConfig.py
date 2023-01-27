@@ -1,7 +1,7 @@
 from nornir import InitNornir
 from nornir_netmiko import netmiko_send_command
 from nornir_utils.plugins.functions import print_result
-from data.globals import SELECTED_DEVICES
+from ba_python_improvement.data.globals import SELECTED_DEVICES
 
 
 def ShowRollback():

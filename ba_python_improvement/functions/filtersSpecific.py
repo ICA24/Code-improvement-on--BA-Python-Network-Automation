@@ -1,5 +1,5 @@
 from nornir import InitNornir
-from data.globals import SELECTED_DEVICES
+from ba_python_improvement.data.globals import SELECTED_DEVICES
 from nornir_netmiko import netmiko_send_command
 from nornir_utils.plugins.functions import print_result
 from jinja2 import Environment, PackageLoader, select_autoescape
